@@ -1,0 +1,467 @@
+/* ==========================================================================
+   Aplikasi Data Mahasiswa Modular - Stylesheet
+   Praktikum Pemrograman Visual - Modul 09
+   ========================================================================== */
+
+/* Variabel Tema & Warna */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-focus-ring: rgba(37, 99, 235, 0.35);
+
+  --danger-color: #dc2626;
+  --danger-hover: #b91c1c;
+  --danger-focus-ring: rgba(220, 38, 38, 0.35);
+
+  --warning-color: #d97706;
+  --warning-hover: #b45309;
+  --warning-focus-ring: rgba(217, 119, 6, 0.35);
+
+  --secondary-color: #64748b;
+  --secondary-hover: #475569;
+  --secondary-focus-ring: rgba(100, 116, 139, 0.35);
+
+  --success-color: #16a34a;
+  --success-bg: #dcfce7;
+  --error-bg: #fee2e2;
+  --info-bg: #e0f2fe;
+  --info-color: #0369a1;
+
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset Standar */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 24px 16px;
+}
+
+/* Kontainer Utama (Maksimal 900px) */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header Aplikasi */
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.app-header .subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* Kartu Ringkasan Statistik */
+.summary-section {
+  margin-bottom: 8px;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.summary-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.summary-card.summary-lulus .summary-value {
+  color: var(--success-color);
+}
+
+.summary-card.summary-belum-lulus .summary-value {
+  color: var(--danger-color);
+}
+
+/* Konten Utama & Kartu (Cards) */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Form Layout (Grid Maksimal 480px) */
+#formMahasiswa {
+  max-width: 480px;
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.form-group input {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+
+/* Fokus Input yang Terlihat Jelas */
+.form-group input:focus,
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-focus-ring);
+}
+
+/* Aksi Form (Tombol Tambah/Simpan & Batal) */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Gaya Tombol */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-focus-ring);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+}
+
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--secondary-focus-ring);
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-warning:hover {
+  background-color: var(--warning-hover);
+}
+
+.btn-warning:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--warning-focus-ring);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+}
+
+.btn-danger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--danger-focus-ring);
+}
+
+/* Area Pesan Notifikasi / Status */
+#pesan {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: none;
+}
+
+#pesan.pesan-sukses {
+  display: block;
+  background-color: var(--success-bg);
+  color: var(--success-color);
+  border: 1px solid #bbf7d0;
+}
+
+#pesan.pesan-error {
+  display: block;
+  background-color: var(--error-bg);
+  color: var(--danger-color);
+  border: 1px solid #fecaca;
+}
+
+#pesan.pesan-info {
+  display: block;
+  background-color: var(--info-bg);
+  color: var(--info-color);
+  border: 1px solid #bae6fd;
+}
+
+/* Header Tabel & Kotak Pencarian */
+.table-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 12px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  min-width: 240px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Tabel Data Mahasiswa */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.data-table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.data-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Sel Aksi (Tombol Edit dan Hapus Berdampingan) */
+.action-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Badge Status Kelulusan */
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-lulus {
+  background-color: var(--success-bg);
+  color: var(--success-color);
+}
+
+.status-belum-lulus {
+  background-color: var(--error-bg);
+  color: var(--danger-color);
+}
+
+/* Baris Kosong */
+.empty-row td {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 24px;
+}
+
+/* ==========================================================================
+   Media Query untuk Layar Ponsel (Maksimal 600px)
+   ========================================================================== */
+@media (max-width: 600px) {
+  body {
+    padding: 16px 8px;
+  }
+
+  .app-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .summary-card {
+    padding: 12px 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  #formMahasiswa {
+    max-width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .table-header-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .action-cell {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .action-cell .btn {
+    width: 100%;
+  }
+}
